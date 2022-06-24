@@ -1,109 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <script src="./js/bootstrap.bundle.min.js"></script>
+    <!DOCTYPE html>
+    <html lang="en">
 
-    <style>
-        /* * {
-            margin: 0;
-            box-sizing: border-box;
-        } */
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/bootstrap.css">
+        <script src="./js/bootstrap.bundle.min.js"></script>
 
-        .container-fluid {
-            background: url('./9c929a467aedfeebcc0a374becff5696.jpeg') no-repeat top left/cover;
-            height: 100vh;
-            /* object-fit: cover; */
-            background-attachment:fixed; 
-            /* 網頁背景圖片會固定不動，與網頁主體分開。 */
+        <style>
+            .container-fluid {
+                background: url('./9c929a467aedfeebcc0a374becff5696.jpeg') no-repeat top left/cover;
+                height: 100vh;
+                /* object-fit: cover; */
+                background-attachment: fixed;
+                /* 網頁背景圖片會固定不動，與網頁主體分開。 */
+                overflow-y: hidden;
+            }
 
-            overflow-y: hidden;
-            /* overflow-x: hidden; */
-        }
+            .row {
+                color: white;
+                border-radius: 20px;
+                margin: 0 100px 0 3000px;
+            }
 
-        .row {
-            color: white;
-            border-radius: 20px;
+            .col {
+                border: 1px solid white;
+                width: 400px;
+                height: 500px;
+                display: flex;
+                font-size: large;
+                /* flex-direction: row; */
+                align-items: center;
+                justify-content: center;
 
-            /* flex-shrink: 0; */
-            margin: 0 100px 0 3000px;
+                /* 
+                    flex 是三合一屬性，可以分別設定伸展係數、收縮係數、基礎係數，預設值為 0 1 auto
+                    flex-basis 有指定的話  彈性項目的數值會無效
+                    */
+                /* bootstrap預設是 flex: 1 0 0%; */
+                flex: 1 1 auto;
+            }
 
+            .col:not(:first-child) {
+                box-shadow: 0 0 40px 1px #000;
+            }
 
-        }
+            .col:first-child {
+                font-size: 50px;
+                border: none;
+            }
 
-        .col {
-            border: 1px solid white;
-            width: 400px;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+            .col:nth-child(2) {
+                border-radius: 20px 0 0 20px;
+            }
 
-        .col:not(:first-child){
-            box-shadow: 0 0 40px 1px #000;
-        }
-        
+            .col:last-child {
+                border-radius: 0 20px 20px 0;
+            }
 
-        .col:first-child {
-            font-size:50px;
-            border: none;
-        }
-        
-        .col:nth-child(2){
-            border-radius: 20px 0 0 20px;
+            #gotoright {
+                display: block;
+            }
 
-        }
+            @media (max-width: 576px) {
+                .container-fluid {
+                    overflow: initial;
+                    height: auto;
+                    padding: 30px 0;
+                }
 
-        .col:last-child {
-            border-radius: 0 20px 20px 0;
-        }
-    </style>
-</head>
+                .row {
+                    border-radius: 20px;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: inherit;
+                    margin: 0;
+                }
 
-<body>
-    <div class="container-fluid d-flex justify-content-center  align-items-center">
-        <!-- <img src="./9c929a467aedfeebcc0a374becff5696.jpeg" alt="蝴蝶滿版背景"> -->
-        <!-- <div class="box"> -->
-        <div class="row d-flex flex-shrink-0">
+                .col {
+                    display: flex;
+                    width: 450px;
+                    height: 100px;
+                    font-size: large;
+                }
 
-            <div class="col title">SCROLL →</div>
-            <div class="col" style="backdrop-filter: none;">backdrop-filter: none</div>
-            <div class="col" style="backdrop-filter: grayscale(1);">backdrop-filter: grayscale(1)</div>
-            <div class="col" style="backdrop-filter: brightness(1.5);">backdrop-filter: brightness(1.5)</div>
-            <div class="col" style="backdrop-filter: blur(5px);">backdrop-filter: blur(5px)</div>
-            <div class="col" style="backdrop-filter: contrast(0.8);">backdrop-filter: contrast(0.8)</div>
-            <div class="col" style="backdrop-filter: invert(0.7);">backdrop-filter: invert(0.7)</div>
-            <div class="col" style="backdrop-filter: opacity(0.4);">backdrop-filter: opacity(0.4)</div>
-            <div class="col" style="backdrop-filter: sepia(0.4);">backdrop-filter: sepia(0.4)</div>
-            <div class="col" style="backdrop-filter: saturate(1.8);">backdrop-filter: saturate(1.8)</div>
-            <div class="col" style="backdrop-filter: hue-rotate(120deg);">backdrop-filter: hue-rotate(120deg)</div>
+                .col:not(:first-child) {
+                    box-shadow: 0 0 40px 1px #000;
+                }
+
+                .col:first-child {
+                    font-size: 50px;
+                }
+
+                .col:nth-child(2) {
+                    border-radius: 20px 20px 0 0;
+                }
+
+                .col:last-child {
+                    border-radius: 0 0 20px 20px;
+                }
+
+                #gotoright {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container-fluid d-flex justify-content-center  align-items-center">
+            <div class="row d-flex flex-shrink-0">
+
+                <div class="col title">SCROLL <div id="gotoright">→</div>
+                </div>
+                <div class="col" style="backdrop-filter: none;">backdrop-filter: none</div>
+                <div class="col" style="backdrop-filter: grayscale(1);">backdrop-filter: grayscale(1)</div>
+                <div class="col" style="backdrop-filter: brightness(1.5);">backdrop-filter: brightness(1.5)</div>
+                <div class="col" style="backdrop-filter: blur(5px);">backdrop-filter: blur(5px)</div>
+                <div class="col" style="backdrop-filter: contrast(0.8);">backdrop-filter: contrast(0.8)</div>
+                <div class="col" style="backdrop-filter: invert(0.7);">backdrop-filter: invert(0.7)</div>
+                <div class="col" style="backdrop-filter: opacity(0.4);">backdrop-filter: opacity(0.4)</div>
+                <div class="col" style="backdrop-filter: sepia(0.4);">backdrop-filter: sepia(0.4)</div>
+                <div class="col" style="backdrop-filter: saturate(1.8);">backdrop-filter: saturate(1.8)</div>
+                <div class="col" style="backdrop-filter: hue-rotate(120deg);">backdrop-filter: hue-rotate(120deg)</div>
+            </div>
+
         </div>
+    </body>
 
-        <!-- </div> -->
-    </div>
-    <!-- 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col">SCROLL</div>
-            <div class="col">backdrop-filter: none</div>
-            <div class="col">backdrop-filter: grayscale(1)</div>
-            <div class="col">backdrop-filter: brightness(1.5)</div>
-            <div class="col">backdrop-filter: blur(5px)</div>
-            <div class="col">backdrop-filter: contrast(0.8)</div>
-            <div class="col">backdrop-filter: invert(0.7)</div>
-            <div class="col">backdrop-filter: opacity(0.4)</div>
-            <div class="col">backdrop-filter: sepia(0.4)</div>
-            <div class="col">backdrop-filter: saturate(1.8)</div>
-            <div class="col">backdrop-filter: hue-rotate(120deg)</div>
-        </div>
-    </div> -->
-
-</body>
-
-</html>
+    </html>
